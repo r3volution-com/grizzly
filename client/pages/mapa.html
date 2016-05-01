@@ -1,0 +1,68 @@
+<div class="row">
+	<div class="col s12 m10 l8 offset-m1 offset-l1">
+		<div id="mapa" style="margin-top: 5vh; width:100%; height:80vh;">Debes permitir la geolocalizaci&oacute;n</div>
+	</div>
+	<div class="col s12 m12 l3 opciones">
+		<div class="inicio-title">Selección
+		</div>
+		<div class="select-text-mapa">
+		distancia en .Km
+		</div>
+		<div class="row">
+			<div class="col s3 m3 l3 offset-m1"><input id="input-number2" type="number"/></div>
+			<div class="col s6 m4 l6"><div id="distancia"></div></div>
+			<div class="col s3 m3 l3"><input id="input-number1" type="number"/> </div>
+		</div>
+		<div class="select-text-mapa">
+		Fecha del evento
+		</div>
+		<div class="row">
+			<div class="col s3 m3 l4 offset-m1 "><input type="date" class="datepicker" id="fecha-ini"></div>
+			<div class="col s3 m3 l4 offset-s4 offset-m4 offset-l2"><input type="date" class="datepicker" id="fecha-fin"></div>
+		</div>
+		<div class="select-text-mapa">
+		Precio
+		</div>
+		<div class="row">
+			<div class="col s3 m3 l3 offset-m1"><input id="input-number4" type="number"/></div>
+			<div class="col s6 m4 l6"><div id="precio"></div></div>
+			<div class="col s3 m3 l3"><input id="input-number3" type="number"/> </div>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<button class="btn waves-effect orange  button-filter" onclick="obtenerLista()">Filtrar</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script> 
+	if (lat != 0 || lon != 0) obtenerLista(lon, lat);
+	var mapCanvas = document.getElementById('mapa');
+	var map = new google.maps.Map(mapCanvas, mapOptions);
+	mapCanvas.innerHTML="";
+	var mapOptions = {
+		center: new google.maps.LatLng(lat, lon),
+		zoom: 13,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	}	
+	var marker = new google.maps.Marker({
+		position: {lat: lat, lng: lon},
+		map: map,
+		title: 'Tu localizacion'
+	});
+	socket.on('s-event-map', function(data) {
+		if (data.status == "OK"){
+			if ('data' in data && data.data.length > 0){
+				for (var i = 0; i<data.data.length; i++){
+					var obj = data.data[i];
+					var marker = new google.maps.Marker({
+						position: {lat: obj.geom.x, lng: obj.geom.y},
+						map: map,
+						title: obj.title
+					});
+				}
+			}
+		} else if (typeof data.msg == "string") Materialize.toast("Error: "+data.msg, 3000);
+		else console.log(data.msg);
+	});
+</script>

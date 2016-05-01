@@ -1,0 +1,250 @@
+input::-webkit-input-placeholder {
+	color: grey !important;
+}
+input:-moz-placeholder { /* Firefox 18- */
+	color: grey !important;  
+}
+input::-moz-placeholder {  /* Firefox 19+ */
+	color: grey !important;  
+}
+input:-ms-input-placeholder {  
+	color: grey !important;  
+}
+.slider{
+	 position:fixed !important;
+}
+#logo-foto{
+	height:100px;
+	width:100px;
+	
+	border-radius:100%;
+
+}
+#logo-index-fondo{
+	z-index:-3;
+	height:120px;
+	width:120px;
+	
+	margin-bottom:-110%;
+	margin-left:50%;
+	left:-60px;
+	position:relative;
+	
+	border-radius:100%;
+	border-top:10px solid #FFB400;
+    border-right:10px solid #FFC444;
+    border-bottom:10px solid #FFD488;
+    border-left:10px solid #FFE4BB;
+	border-style:double;
+
+    animation-name: dropLogo;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.8s;
+	
+	animation-name: spin;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 3s;
+}
+#logo-index-fondo2{
+	z-index:-3;
+	height:120px;
+	width:120px;
+
+	border-radius:100%;
+	border-top:5px solid #FFB400;
+    border-right:7px solid #FFC444;
+    border-bottom:3px solid #FFD488;
+    border-left:10px solid #FFE4BB;
+	border-style:double;
+
+    animation-name: dropLogo;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.8s;
+	
+	animation-name: spin;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 3s;
+}
+#logo-index-fondo3{
+	z-index:-3;
+	height:110px;
+	width:110px;
+
+	border-radius:100%;
+	border-top:10px solid #FFB400;
+    border-right:2px solid #FFC444;
+    border-bottom:12px solid #FFD488;
+    border-left:5px solid #FFE4BB;
+	border-style:double;
+
+    animation-name: dropLogo;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.8s;
+	
+	animation-name: spin;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 11s;
+}
+#logo-index-fondo4{
+	z-index:-3;
+	height:90px;
+	width:100px;
+
+	border-radius:100%;
+	border-top:2px solid #FFB400;
+    border-right:12px solid #FFC444;
+    border-bottom:5px solid #FFD488;
+    border-left:10px solid #FFE4BB;
+	border-style:double;
+
+    animation-name: dropLogo;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.8s;
+	
+	animation-name: spin2;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 11s;
+}
+
+
+
+#logo-index{
+	z-index:-2;
+	height:100px;
+	width:100px;
+	
+	margin-bottom:-25%;
+	margin-top:25%;
+	margin-left:50%;
+	left:-50px;
+	position:relative;
+	
+	border-radius:100%;
+
+    animation-name: dropLogo;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.8s;
+}
+.lr-button{
+	position: fixed;
+	right: 10px;
+	top: 10px;
+}
+
+#lr-layer{
+	z-index:0;
+	margin-top: 40%;
+	border-radius:20px;
+	position:relative;
+	
+    animation-name: dropHeader;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.8s;
+}
+#lr-titulo{
+	padding:2px;
+	
+	border-bottom-width:2px;
+	border-bottom-color:orange;
+	border-width:3px 1px 1px 0px;
+	border-radius:3px;
+}
+@keyframes dropHeader {
+    0% {
+        transform: translateX(-1000px);
+    }
+    90% {
+        transform: translateX(30px);
+    }
+	100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes dropLogo {
+    0% {
+        transform: translateY(-500px);
+    }
+    90% {
+        transform: translateY(30px);
+    }
+	100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotateZ(0deg);
+    }
+	100% {
+        transform: rotateZ(360deg);
+    }
+}
+@keyframes spin2 {
+    0% {
+        transform: rotateZ(360deg);
+    }
+	100% {
+        transform: rotateZ(0deg);
+    }
+}
+.intro-text{
+	border-radius:20px;
+	background-color:rgba(21,21,21,.6);
+	position:absolute;
+	margin-top:12%;
+	
+	font-family: 'Roboto', sans-serif;
+	font-size:1.4vw;
+	text-align:justify;
+	letter-spacing:3px;
+	font-weight:bold;
+	color:#FFCC55;
+	
+	animation-name: dropHeader;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.8s;
+}
+.intro-text-title{
+	float:left;
+	margin-left:25px;
+	margin-top:10px;
+	
+	font-size:40px;
+	text-align:left;
+	color:#FFBB00;
+}
+@media only screen and  (max-width: 1420px) and (min-width:993px) {
+	
+	.intro-text{
+		font-size:17px;
+		text-align:left;
+		margin-top:17.5%;
+	}
+	.intro-text-title{
+		font-size:27.5px;
+	}
+}
+@media only screen and (max-width: 993px) and (min-width:603px) {
+	.intro-text{
+		font-size:12px;
+		text-align:left;
+		margin-top:32%;
+	}
+	.intro-text-title{
+		font-size:20px;
+	}
+	
+}

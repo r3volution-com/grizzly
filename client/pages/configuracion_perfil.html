@@ -1,0 +1,124 @@
+   <div class="row">
+    <form id="newName" action="operations.php?op=change_email" class="col s12 m6 l6 offset-m3 offset-l3">
+      <div class="row center-align" style="margin-top:5%;">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate" name="email">
+          <label for="email">Nuevo e-mail</label>
+        </div>
+		<a class="btn waves-effect orange waves-light" onclick="sendNewName()" type="submit" name="send-new-name">Enviar
+			<i class="material-icons right">send</i>
+		</a>
+      </div>
+	</form>
+	<form id="newPass" action="operations.php?op=change_pass" class="col s12 m6 l6 offset-m3 offset-l3">
+      <div class="row center-align" style="margin-top:5%;">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate" name="password">
+          <label for="password">Nueva contrase&ntilde;a</label>
+        </div>
+		<div class="input-field col s12">
+          <input id="repassword" type="password" class="validate" name="repassword">
+          <label for="repassword">Repite la nueva contrase&ntilde;a</label>
+        </div>
+		<a class="btn waves-effect orange waves-light" onclick="sendNewPass()" type="submit" name="send-new-pass">Enviar
+			<i class="material-icons right">send</i>
+		</a>
+      </div>
+	</form>
+	<form enctype="multipart/form-data" id="newPic" action="operations.php?op=change_profile_pic" class="col s12 m6 l6 offset-m3 offset-l3">
+	   <div class="file-field input-field  center-align" style="margin-top:15%;">
+		  <div class="btn orange">
+			<span>Nueva imagen de perfil</span>
+			<input id="file" type="file" name="image">
+		  </div>
+		  <div class="file-path-wrapper">
+			<input class="file-path validate" type="text">
+		  </div>
+		<a class="btn waves-effect orange waves-light" onclick="sendNewPic()" type="submit">Enviar
+			<i class="material-icons right">send</i>
+		</a>
+		</div>
+    </form>
+  </div> 
+ <form action="#">
+ 
+   
+  </form>
+<output id="list"></output>
+<script>
+	function sendNewName() {
+		$("#newName").ajaxSubmit({
+			dataType: 'json',
+			type: 'POST',
+			success:function(res){
+				if (res.status == "OK"){
+					location.href="frontpage.php";
+				} else {
+					Materialize.toast(res.msg, 3000);
+				}
+			},
+			error: function(res){
+				Materialize.toast('Se ha producido un error', 3000);
+				console.log(res);
+			}
+		}); 
+	}
+	function sendNewPass() {
+		$("#newName").ajaxSubmit({
+			dataType: 'json',
+			type: 'POST',
+			success:function(res){
+				if (res.status == "OK"){
+					location.href="frontpage.php";
+				} else {
+					Materialize.toast(res.msg, 3000);
+				}
+			},
+			error: function(res){
+				Materialize.toast('Se ha producido un error', 3000);
+				console.log(res);
+			}
+		}); 
+	}
+	function sendNewPic() {
+		$("#newPic").ajaxSubmit({
+			dataType: 'json',
+			type: 'POST',
+			success:function(res){
+				if (res.status == "OK"){
+					location.href="frontpage.php";
+				} else {
+					Materialize.toast(res.msg, 3000);
+				}
+			},
+			error: function(res){
+				Materialize.toast('Se ha producido un error', 3000);
+				console.log(res);
+			}
+		}); 
+	}
+function archivo(evt) {
+      var files = evt.target.files; // FileList object
+       
+        //Obtenemos la imagen del campo "file". 
+      for (var i = 0, f; f = files[i]; i++) {         
+           //Solo admitimos imágenes.
+           if (!f.type.match('image.*')) {
+                continue;
+           }
+       
+           var reader = new FileReader();
+           
+           reader.onload = (function(theFile) {
+               return function(e) {
+               // Creamos la imagen.
+                      document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
+               };
+           })(f);
+ 
+           reader.readAsDataURL(f);
+       }
+}
+             
+     // document.getElementById('files').addEventListener('change', archivo, false);
+	  </script>

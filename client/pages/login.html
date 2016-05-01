@@ -1,0 +1,39 @@
+<div class="card-content black-text">
+	<span class="card-title"><span id="lr-titulo center-align">Grizz.ly</span></span>
+	<form id="login" action="operations.php?op=login" method="post"> 
+		<div class="input-field">
+			<input placeholder="Usuario o E-mail" id="username" name="username" type="text" class="validate" required maxlength="100"/>
+		</div>
+		<div class="input-field">
+			<input placeholder="Contrase&ntilde;a" id="password" name="password" type="password" required/>
+		</div>
+		<a href="javascript:void(0)" onclick="changeLRLayer('recpass')" class="black-text">He olvidado mi contrase&ntilde;a</a>
+	</form>
+</div>
+<div class="card-action" style="margin-left:20px;">
+	<a href="javascript:void(0)" onclick="sendLogin()" class="waves-effect waves-light btn orange white-text">Entrar</a>
+</div>
+<script>
+	function sendLogin() {
+		$("#login").ajaxSubmit({
+			dataType: 'json',
+			type: 'POST',
+			success:function(res){
+				if (res.status == "OK"){
+					location.href="in";
+				} else {
+					Materialize.toast(res.msg, 3000);
+				}
+			},
+			error: function(res){
+				Materialize.toast('Se ha producido un error', 3000);
+				console.log(res);
+			}
+		}); 
+	}
+	$(document).keypress(function(e) {
+		if(e.which == 13) {
+			sendLogin();
+		}
+	});
+</script>

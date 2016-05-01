@@ -1,0 +1,93 @@
+<div class="row center-align">
+    <div class="col s12 m12 l8 offset-l2">
+      <ul class="tabs" id="tabla2">
+        <li class="tab col s12 col-sus"><a href="#test1">De tus creadores favoritos...</a></li>
+        <li class="tab col s12 col-gen"><a class="active" href="#test2">Eventos cercanos</a></li>
+        <li class="tab col s12 col-amig"><a href="#test3">Tus amigos van a...</a></li>
+      </ul>
+    </div>
+    <div id="test1" class="col s12 m12 l6 offset-l3">
+		<div class="preloader-wrapper big active" style="margin-top: 20px;">
+			<div class="spinner-layer spinner-blue-only">
+				<div class="circle-clipper left">
+					<div class="circle"></div>
+				</div>
+				<div class="gap-patch">
+					<div class="circle"></div>
+				</div>
+				<div class="circle-clipper right">
+					<div class="circle"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div id="test2" class="col s12 m12 l6 offset-l3">
+		<div class="preloader-wrapper big active" style="margin-top: 20px;">
+			<div class="spinner-layer spinner-blue-only">
+				<div class="circle-clipper left">
+					<div class="circle"></div>
+				</div>
+				<div class="gap-patch">
+					<div class="circle"></div>
+				</div>
+				<div class="circle-clipper right">
+					<div class="circle"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div id="test3" class="col s12 m12 l6 offset-l3">
+		<div class="preloader-wrapper big active" style="margin-top: 20px;">
+			<div class="spinner-layer spinner-blue-only">
+				<div class="circle-clipper left">
+					<div class="circle"></div>
+				</div>
+				<div class="gap-patch">
+					<div class="circle"></div>
+				</div>
+				<div class="circle-clipper right">
+					<div class="circle"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$('#tabla2').tabs();
+	socket.on('s-event-get', function(data) {
+		if (data.status == "OK"){
+			var container = $(document.createElement("div"));
+			if ('data' in data && data.data.length > 0){
+				$.ajax({
+					url: "pages/detalle.html",
+					success: function(res) {
+						for (var i = 0; i<data.data.length; i++){
+							var obj = data.data[i];
+							var res2 = $(res);
+							date = obj.date.split("-");
+							year = date[0];
+							month = date[1];
+							day = date[2].split("T")[0];
+							res2.find(".titulotarjeta").html(obj.title);
+							res2.find(".descripciontarjeta").html(obj.description);
+							res2.find(".user-dist").html(Math.round(obj.distance)+"km");
+							res2.find(".nombre-usuario").html(obj.creator_name);
+							res2.find(".suscribir-button").attr('onclick', "followUser("+obj.creator_id+")");
+							res2.find(".boton-go").attr('onclick', "getDetails("+obj.id+")");
+							res2.find(".user-price").html(obj.cost);
+							res2.find(".user-time").html(day+"/"+month+"/"+year);
+							res2.find(".user-assist").html(obj.current+"/"+obj.capacity);
+							res2.find('.tooltipped').tooltip({delay: 50});
+							container.append(res2);
+						}
+					}
+				});
+			//console.log(container);
+			} else container.html("No hay eventos disponibles");
+			if (data.type == 0) $("#test2").html(container);
+			else if (data.type == 1) $("#test1").html(container);
+			else if (data.type == 2) $("#test3").html(container);
+		} else if (typeof data.msg == "string") Materialize.toast("Error: "+data.msg, 3000);
+		else console.log(data.msg);
+	});
+</script>

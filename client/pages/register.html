@@ -1,0 +1,44 @@
+<div class="card-content black-text">
+	<span class="card-title">Crea un usuario</span>
+	<form id="register" action="operations.php?op=register" method="post"> 
+		<div class="input-field">
+			<input placeholder="Usuario" id="username" name="username" type="text" class="validate" maxlength="50" required />
+		</div>
+		<div class="input-field">
+			<input placeholder="E-mail" id="email" name="email" type="text" class="validate" maxlength="100" required />
+		</div>
+		<div class="input-field">
+			<input placeholder="Contrase&ntilde;a" id="password" name="password" type="password" required />
+		</div>
+		<div class="input-field">
+			<input placeholder="Confirma tu contrase&ntilde;a" id="repassword" name="repassword" type="password" required />
+		</div>
+	</form>
+</div>
+<div class="card-action">
+	<a href="javascript:void(0)" onclick="sendRegister()" class="waves-effect waves-light btn brown white-text">Registrate</a>
+</div>
+<script>
+	function sendRegister() {
+		$("#register").ajaxSubmit({
+			dataType: 'json',
+			type: 'POST',
+			success:function(res){
+				if (res.status == "OK"){
+					location.href="index.php";
+				} else {
+					Materialize.toast(res.msg, 3000);
+				}
+			},
+			error: function(res){
+				Materialize.toast('Se ha producido un error', 3000);
+				console.log(res);
+			}
+		}); 
+	}
+	$(document).keypress(function(e) {
+		if(e.which == 13) {
+			sendRegister();
+		}
+	});
+</script>

@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col s12 m12 l3 opciones">
+		<div class="inicio-title">Selección
+		</div>
+		<div class="select-text">
+		distancia en .Km
+		</div>
+		<div class="row">
+			<div class="col s3 m1 l3 offset-m2"><input id="input-number2" type="number"/></div>
+			<div class="col s6 m6 l6"><div id="distancia"></div></div>
+			<div class="col s3 m1 l3"><input id="input-number1" type="number"/> </div>
+		</div>
+		<div class="select-text">
+		Fecha del evento
+		</div>
+		<div class="row">
+			<div class="col s4 m2 l3 offset-s1 offset-m3 offset-l1"><input type="date" class="datepicker" id="fecha-ini"></div>
+			<div class="col s4 m2 l3 offset-s2 offset-m2 offset-l2"><input type="date" class="datepicker" id="fecha-fin"></div>
+		</div>
+		<div class="select-text">
+		Precio
+		</div>
+		<div class="row">
+			<div class="col s3 m1 l3 offset-m2"><input id="input-number4" type="number"/></div>
+			<div class="col s6 m6 l6"><div id="precio"></div></div>
+			<div class="col s3 m1 l3"><input id="input-number3" type="number"/> </div>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<button class="btn-large waves-effect orange  button-filter" onclick="obtenerLista(lon, lat)">Filtrar</button>
+			</div>
+		</div>
+  </div>
+  <div class="col s12 m12 l7 offset-l1">
+	<div class="inicio-title-2" id="planes-contenido"></div>
+  </div>
+</div>
+<script type="text/javascript" src="resources/js/plans.js"></script>
+<script>
+	if (lat != 0 || lon != 0) obtenerLista(lon, lat);
+	socket.on('s-event-get', function(data) {
+		if (data.status == "OK"){
+			var container = $(document.createElement("div"));
+			if ('data' in data && data.data.length > 0){
+				$.ajax({
+					url: "pages/detalle.html",
+					success: function(res) {
+						for (var i = 0; i<data.data.length; i++){
+							var obj = data.data[i];
+							var res2 = $(res);
+							date = obj.date.split("-");
+							year = date[0];
+							month = date[1];
+							day = date[2].split("T")[0];
+							res2.find(".nombre-evento").html(obj.title);
+							res2.find(".descripcion-interior").html(obj.description);
+							res2.find(".nombre-usuario").html(obj.creator_name);
+							res2.find(".suscribir-button").attr('onclick', "followUser("+obj.creator_id+")");
+							res2.find(".boton-go").attr('onclick', "getDetails("+obj.id+")");
+							res2.find(".user-dist").html(Math.round(obj.distance)+"km");
+							res2.find(".user-price").html(obj.cost);
+							res2.find(".user-time").html(day+"/"+month+"/"+year);
+							res2.find(".user-assist").html(obj.current+"/"+obj.capacity);
+							container.append(res2);
+						}
+					}
+				});
+			//console.log(container);
+			} else container.html("No hay eventos disponibles");
+			if (data.type == 0) $("#planes-contenido").html(container);
+		} else if (typeof data.msg == "string") Materialize.toast("Error: "+data.msg, 3000);
+		else console.log(data.msg);
+	});
+  </script>

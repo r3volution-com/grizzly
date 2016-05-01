@@ -1,0 +1,96 @@
+
+<div class="inicio-title"> Creador de eventos</div>
+
+<div class="inicio-title-3 s12 m12 offset-l1 l10">Mapa del lugar</div>
+<div id="mapa" style="width:100%; height:400px;"></div>
+<div class="inicio-title-3">T&iacute;tulo</div>
+<div class="row">
+    <div class="input-field col s6">
+        <input id="last_name" type="text" class="validate">
+        <label for="last_name">T&iacute;tulo</label>
+    </div>
+</div>
+<div class="inicio-title-3 s12 m12 offset-l1 l10">Descripci&oacute;n</div>
+<textarea id="wysiwyg"></textarea>
+<div class="row">
+	<div class="input-field col s3 m3 l2 ">
+          <i class="material-icons prefix">payment</i>
+          <input id="cost" type="number" class="validate" placeholder="Coste apr&oacute;x.">
+    </div>
+	<div class="input-field col s3 m3 l2 offset-m2 offset-l1">
+          <i class="material-icons prefix">perm_identity</i>
+          <input id="people" type="number" class="validate" placeholder="Nº m&aacute;x de asistentes">
+    </div>
+	<div class="col s5 m3 l2 offset-s1 offset-m1 offset-l5">
+		<input type="date" class="datepicker" id="date">
+	</div>
+	<!--<div class="col s5 m3 l2 offset-s1 offset-m1 offset-l5">
+		<a class="waves-effect waves-light orange btn-large" id="add-etapa"><i class="material-icons left">add</i>Etapas</a>
+	</div>-->
+	<button class="btn-large waves-effect orange waves-light" type="submit" name="publish" style="margin-top:2.5%" onclick="createEvent()">Publicar
+		<i class="material-icons right">send</i>
+	</button>
+</div>
+<script>tinymce.init({ selector:'#wysiwyg' });</script>
+<script>
+var lat, lon;
+function placeMarkerAndPanTo(latLng, map) {
+  var marker = new google.maps.Marker({
+    position: latLng,
+    map: map
+  });
+  map.panTo(latLng);
+}
+function createEvent(){
+	socket.emit('c-event-create', {title: $("last_name").val(), description: $("wysiwyg").val(), loc_long: lon, loc_lat: lat, date: $("date").val(), cost: $("cost").val(), capacity: $("people").val()});
+}
+	socket.on('s-event-create', function (data){
+		if (data.status == "OK") Materialize.toast("Evento creado correctamente", 3000);
+		else if (typeof data.msg == "string") Materialize.toast("Error: "+data.msg, 3000);
+		else console.log(data.msg);
+	});
+    var mapCanvas = document.getElementById('mapa');
+	if (navigator.geolocation){
+		navigator.geolocation.getCurrentPosition(function(objPosition){
+			mapCanvas.innerHTML="";
+			lat = objPosition.coords.latitude;
+			lon = objPosition.coords.longitude;
+			var mapOptions = {
+				center: new google.maps.LatLng(lat, lon),
+				zoom: 13,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			}
+			var map = new google.maps.Map(mapCanvas, mapOptions);
+			var marker = new google.maps.Marker({
+				position: {lat: lat, lng: lon},
+				map: map,
+				title: 'Tu localizacion'
+			});
+			 map.addListener('dragend', function(e) {
+				placeMarkerAndPanTo(e.latLng, map);
+			 });
+		}, 
+		function(objPositionError) {
+			switch (objPositionError.code) {
+				case objPositionError.PERMISSION_DENIED:
+					Materialize.toast("No se ha permitido el acceso a la posici&oacute;n del usuario.", 5000);
+				break;
+				case objPositionError.POSITION_UNAVAILABLE:
+					Materialize.toast("No se ha podido acceder a la informaci&oacute;n de su posici&oacute;n.", 5000);
+				break;
+				case objPositionError.TIMEOUT:
+					Materialize.toast("El servicio ha tardado demasiado tiempo en responder.", 5000);
+				break;
+				default:
+					Materialize.toast("Error desconocido.", 5000);
+				break;
+			}
+		}, 
+		{
+			maximumAge: 75000,
+			timeout: 15000
+		});
+	} else {
+		Materialize.toast("Su navegador no soporta la API de geolocalizaci&oacute;n.", 5000);
+	}
+</script>

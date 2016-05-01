@@ -1,0 +1,821 @@
+/*ARREGLAR ESTO, ESTE CODIGO ESTA FATAL, HORRIPILANTEMENTE MAL*/
+/* -------------------FRONTPAGE ---------------------*/
+/* navegador y tal*/
+
+.nav-wrapper{  
+ background: linear-gradient(orange, brown);
+}
+.inicio-title{
+	text-align:center;
+}
+.foto-perfil{
+	width:55px;
+	height:55px;
+	margin-top:5%;
+	
+	border-radius:10%;
+	border:3px solid white;
+}
+.logo-central{
+	width:60px;
+	height:60px;
+}
+/* buscador mas copiao que la macarena*/
+.searchform {
+
+display: inline-block;
+
+zoom: 1; /* ie7 hack para display:inline-block */
+
+display: inline;
+
+border: solid 1px #d2d2d2;
+
+padding: 3px 5px;
+
+border-radius: 2em;
+
+
+box-shadow: 0 1px 0px rgba(0,0,0,.1);
+
+background: #f1f1f1;
+
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
+
+background: -moz-linear-gradient(top,  #fff,  #ededed);
+
+filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed'); /* ie7 */
+
+}
+
+.searchform .searchfield {
+
+background: #fff;
+
+padding: 6px 6px 6px 8px;
+
+width: 202px;
+
+border: solid 1px #bcbbbb;
+
+outline: none;
+
+border-radius: 2em;
+
+box-shadow: inset 0 1px 2px rgba(0,0,0,.2);
+
+}
+
+.searchform .searchbutton {
+height: 27px;
+width: 27px;
+
+font-size: 11px;
+text-shadow: 0 1px 1px rgba(0,0,0,.6);
+color: #fff;
+
+
+border: solid 1px #494949;
+border-radius: 2em;
+
+background: #5f5f5f;
+filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#9e9e9e', endColorstr='#454545'); /* ie7 */
+}
+
+.buscador{
+	padding-left:10px;
+	padding-right:10px;
+}
+
+/* el boton crear mare mia*/
+.boton-crear{
+	z-index:2;
+	float:right;
+	position:relative;
+	margin-right:10px;
+}
+.dropdown1{
+	width:250px;
+}
+
+/* -------------------PERFIL ---------------------*/
+.col-gen{
+	border-right:1px solid grey;
+}
+.col-sus{
+	border-right:1px solid grey;
+}
+
+.imagen-perfil{
+	width:150px;
+	height:150px;
+	margin-top:0.5%;
+	
+	border:6px solid orange;
+	border-radius:100%;
+	border-style:double;
+}
+.barra-nivel{
+	width:200px;
+	border-radius:100%;
+	transform: rotateZ(90deg);
+}
+#data-perfil{
+	font-family: 'Roboto', sans-serif;
+	font-size:1.5vw;
+	font-weight:bold;
+	color:#FFCC55;
+}
+.data-inside{
+	border-right:2px solid #DDDDDD;
+	border-left:2px solid #DDDDDD;
+	min-height: 45px;
+}
+.chip-usuario{
+	position:relative;
+	float:left;
+	display:block;
+	clear:both;
+	margin-bottom:-15px;
+	background-color:#ffc107;
+}
+.chip-usuario-front{
+	position:relative;
+	background-color:#ffc107;
+	margin:0 auto;
+	margin-bottom:-10%;
+	margin-top:5%;
+}
+
+@media only screen and (min-width: 993px) {
+	#data-large{
+		margin-left:18.55%;
+	}
+
+}
+@media only screen and (max-width: 993px) and (min-width:603px) {
+	#data-large{
+		margin-left:24%;
+	}
+
+}
+@media only screen and (max-width: 603px) {
+	#data-large{
+		margin-left:11.55%;
+	}
+
+	#data-perfil{
+		font-size:3vw;
+	}
+}
+
+/* ----------------- PLANES Y RETOS Y MEDIA-QUERIES DE TODOS ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+#tabla2{
+	margin-top:15%;
+	font-size:20px;
+}
+.inicio-title{
+	font-family: 'Roboto',sans-serif;
+	font-size:2.5vw;
+	font-weight:bold;
+	color:#FFB400;
+	border-bottom:2px solid #DDDDDD;
+}
+.inicio-title-2{
+	font-family: 'Roboto',sans-serif;
+	font-size:2.5vw;
+	font-weight:bold;
+	color:#FFB400;
+	margin-top:9%;
+}
+.inicio-title-3{
+	font-family: 'Roboto',sans-serif;
+	font-size:2.5vw;
+	font-weight:bold;
+	color:#FFB400;
+	margin-top:2%;
+}
+.select-text{
+	font-family: 'Roboto',sans-serif;
+	font-size:2vw;
+	text-align:center;
+	font-weight:bold;
+	color:#FFB444;
+	
+	margin-top:5%;
+	margin-bottom:-5%;
+}
+.select-text-mapa{
+	font-family: 'Roboto',sans-serif;
+	font-size:2vw;
+	text-align:center;
+	font-weight:bold;
+	color:#FFB444;
+	
+	padding-bottom:5%;
+	margin-top:5%;
+	margin-bottom:-5%;
+}
+.opciones{
+	height:100%;
+	margin-top:5%;
+	
+	padding-right:20%;
+	border-right:2px solid #FFCC55;
+}
+
+#distancia{
+	margin-top:15%;
+}
+#precio{
+	margin-top:15%;
+}
+#precio2{
+	margin-top:15%;
+}	
+#fecha-fin{
+	margin-left:5%;
+	margin-top:20%;
+	width:160%;
+	font-family: 'Roboto',sans-serif;
+	font-size:0.8vw;
+	text-align:left;
+	font-weight:bold;
+	color:#ff9933
+}
+#fecha-ini{
+	margin-top:20%;
+	width:160%;
+	font-family: 'Roboto',sans-serif;
+	font-size:0.8vw;
+	text-align:left;
+	font-weight:bold;
+	color:#ff9933
+}
+#map{
+	width:100%;
+	height:50%;
+}
+.detalle-fondo{
+	height:120px;
+	background: linear-gradient(#ffecb3, #ffb300 );
+	margin:5px;
+}
+/* OOPPPPPPS A VER COMO ARREGLO ESTO
+.user-pic-detail{
+	height:120px;
+}
+.user-pic-zone{
+	height:120px;
+	float:left;
+}*/
+.user-pic-detail{
+	height:90px;
+	border:100%;
+	margin-right:10px;
+	border: 2px solid #FFB400;
+	border-radius:100%;
+}
+.user-pic-zone{
+	padding-top:10px;
+	height:90px;
+	float:left;
+}
+.flecha{
+}
+.suscribir-button{
+	position:relative;
+	z-index:3;
+	margin-left:-120px;
+	margin-right:80px;
+}
+.anyadir-button{
+	position:relative;
+	z-index:3;
+	margin-left:-35px;
+}
+/* ESPERO NO CAGARLA OOOOOOPS
+.info-detail{
+	height:120px;
+	padding-left:10px;
+	padding-right:30px;
+	margin-right:-10px;
+	
+	text-align:right;
+	font-family: 'Roboto',sans-serif;
+	font-size:12px;
+	text-align:right;
+	color:black;
+	font-weight:bold;
+	
+	float:right;
+}*/
+.info-detail{
+	margin-top:-10px;
+	height:300px;
+	
+	text-align:left;
+	font-family: 'Roboto',sans-serif;
+	font-size:12px;
+	color:black;
+	font-weight:bold;
+
+}
+/*.detail-icon{
+	width:15px;
+	height:15px;
+	float:right;
+	margin-left:2px;
+	margin-right:-5px
+}*/
+.detail-icon{
+	width:25px;
+	height:25px;
+	padding:0px;
+	border-radius:100%;
+	margin-top:-20px;
+}
+
+.user-dist{
+}
+.user-price{
+	overflow: hidden;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.user-time{
+}
+.user-assist{
+		
+	overflow: hidden;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card-title{
+	text-align:right;
+	font-family: 'Roboto',sans-serif;
+	font-size:0.8vw;
+	color:orange;
+	font-weight:bold;
+	text-shadow: 1px 1px 3px #000000;
+	
+	overflow: hidden;
+    text-overflow: ellipsis;
+	word-wrap:break-word;
+	
+}
+.description{
+	float:left;
+	font-family: 'Roboto',sans-serif;
+	color:black;
+	text-align:justify;
+	
+	overflow: hidden;
+    text-overflow: ellipsis;
+	word-wrap:break-word;
+	
+	width:27.5vw;
+	height:120px;
+	margin-left:1%;
+}
+
+.boton-go{
+	width:7.5%;
+	height:120px;
+	float:right;
+	margin-right:-11px;
+		
+	background-image: url('../img/go-boton-large.png');
+	background-size: cover;
+	background-position: 0% 50%; 
+	background-repeat: no-repeat;
+}
+.boton-go:hover{
+	background-image: url('../img/go-boton-large-1.png');
+	background-size: cover;
+	background-position: 0% 50%; 
+	background-repeat: no-repeat;
+}
+.card-action{
+}
+.imagen-perfil-interior{
+	width:150px;	
+	height:150px;
+	margin:1%;
+		
+	border:6px solid orange;
+	border-radius:100%;
+	border-style:double;
+}
+.nombre-evento{
+	font-family: 'Roboto',sans-serif;
+	font-size:3vw;
+	text-align:center;
+	font-weight:bold;
+	color:#FFB444;
+		
+	float:left;
+	margin-top:2%;
+}
+.select-text-interior{
+	font-family: 'Roboto',sans-serif;
+	font-size:2vw;
+	text-align:center;
+	font-weight:bold;
+	color:#FFB444;
+}
+.descripcion-interior{
+	height:60%;
+	font-family: 'Roboto',sans-serif;
+	font-size:1vw;
+	text-align:justify;
+}
+.boton-interior{
+	float:right;
+	width:10vw;
+	height:80vh;
+	margin-top:-80vh;
+	
+	background-image: url('../img/go-boton-large.png');
+	background-size: cover;
+	background-position: 0% 50%; 
+	background-repeat: no-repeat;
+}
+.boton-interior:hover{
+	background-image: url('../img/go-boton-large-1.png');
+	background-size: cover;
+	background-position: 0% 50%; 
+	background-repeat: no-repeat;
+}
+.button-filter{
+	left:50%;
+	margin-left:-58px;
+}
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+@media only screen and  (max-width: 1420px) and (min-width:993px) {
+	.detalle-fondo{
+		height:110px;
+	}
+	.user-pic-detail{
+		height:110px;
+	}
+	.user-pic-zone{
+		height:110px;
+	}
+	.chip-usuario{
+		position:relative;
+		margin-bottom:-15px;
+		margin-left:2px;
+	}
+	.suscribir-button{
+		margin-left:-110px;
+		margin-right:70px;
+	}
+	.info-detail{
+		height:110px;
+	}
+	.my-card-title{
+		font-size:1.15vw;
+		color:#e65100;
+		
+		margin-top:10px;
+		height:20px;
+		margin-left:1%;
+	}
+	.description{
+		margin-top:-10px;
+
+		width:21vw;
+	}
+	.boton-go{
+		height:110px;
+	}
+}
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+@media only screen and (max-width: 993px) and (min-width:603px) {
+	.inicio-title{
+		font-size:8vw;
+	}
+	.inicio-title-2{
+		font-size:6vw;
+		border-top:2px solid #FFB400;
+	}
+	.select-text{
+		margin-bottom:6%;
+	}
+	.select-text-mapa{
+		font-size: 4vw;
+		margin-bottom:1%;
+	}
+	#fecha-fin{
+		margin-left:5%;
+		width:100%;
+		font-size:2vw;
+	}
+	#fecha-ini{
+		width:100%;
+		font-size:2vw;
+	}
+	#distancia{
+		margin-top:5%;
+	}
+	#precio{
+		margin-top:5%;
+	}
+	#precio2{
+		margin-top:5%;
+	}
+	.detalle-fondo{
+		height:100px;
+	}
+	.user-pic-detail{
+		height:100px;
+	}
+	.user-pic-zone{
+		height:100px;
+	}
+	.chip-usuario{
+		position:relative;
+		margin-bottom:-20px;
+		margin-left:2px;
+	}
+	.suscribir-button{
+		margin-left:-100px;
+		margin-right:60px;
+	}
+	.info-detail{
+		height:100px;
+		padding-right:25px;
+
+		font-size:11px;
+	}
+	.my-card-title{
+		font-size:1.8vw;
+		color:#e65100;
+		
+		margin-top:9px;
+		height:20px;
+	}
+	.description{
+		margin-top:-10px;
+		width:55vw;
+		height:110px;
+	}
+	.boton-go{
+		height:100px;
+	}
+}
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+@media only screen and (max-width: 602px) and (min-width:500px) {
+	.boton-crear{
+		margin-right: 2%;
+	}
+	.inicio-title{
+		font-size:8vw;
+	}
+	.inicio-title-2{
+		font-size:6vw;
+	}
+	.select-text{
+		font-size:5vw;
+	}
+	.select-text-mapa{
+		font-size:8vw;
+	}
+
+	#distancia{
+		margin-top:13%;
+	}
+	#precio{
+		margin-top:13%;
+	}
+	#precio2{
+		margin-top:13%;
+	}
+	#fecha-fin{
+		margin-top:20%;
+	}
+	#fecha-ini{
+		margin-top:20%;
+	}
+	.detalle-fondo{
+		height:90px;
+	}
+	.user-pic-detail{
+		height:90px;
+	}
+	.user-pic-zone{
+		height:90px;
+	}
+	.chip-usuario{
+		margin-bottom:-20px;
+		margin-left:0px;
+	}
+	.suscribir-button{
+		margin-left:-90px;
+		margin-right:50px;
+	}
+	.info-detail{
+		height:90px;
+		padding-left:5px;
+		padding-right:15px;
+		margin-right:-5px;
+
+		font-size:10.2px;
+	}
+	.my-card-title{
+		font-size:3.2vw;
+		color:#e65100;
+		
+		margin-top:10px;
+		height:20px;
+	}
+	.description{
+		
+		margin-top:-10px;
+		width:53vw;
+		height:90px;
+	}
+	.detail-icon{
+		width:10px;
+		height:10px;
+	}
+	.boton-go{
+		height:90px;
+	}
+}
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+/* ----------------- --------------------------------------- ------------*/
+@media only screen and (max-width: 499px) {
+	.inicio-title{
+		font-size:8vw;
+	}
+	.inicio-title-2{
+		font-size:6vw;
+	}
+	.inicio-title-3{
+		font-size:2.5vw;
+	}	
+	.select-text{
+		font-size:5vw;
+		margin-bottom:-5%;
+	}
+	.select-text-mapa{
+		font-size:5vw;
+		margin-bottom:-5%;
+	}
+	
+
+	#distancia{
+		margin-top:13%;
+	}
+	#precio{
+		margin-top:13%;
+	}
+	#precio2{
+		margin-top:13%;
+	}
+	#fecha-fin{
+		margin-top:20%;
+	}
+	#fecha-ini{
+		margin-top:20%;
+	}
+	.detalle-fondo{
+		height:60px;
+		margin:2px;
+	}
+	.user-pic-detail{
+		height:60px;
+	}
+	.user-pic-zone{
+		height:60px;
+	}
+	.chip-usuario{
+		position:relative;
+		margin-bottom:-60px;
+	}
+	.nombre-usuario{
+		position:absolute;
+		font-family: 'Roboto',sans-serif;
+		font-size:8px;
+		margin-left:-1%;
+		margin-bottom:-1%;
+	}
+	.suscribir-button{
+		margin-left:-60px;
+		margin-right:50px;
+	}
+	.btn-small{
+		width:10px;
+		height:10px;
+	}
+	.flecha{
+		width:5px;
+		height:5px;
+	}
+	.info-detail{
+		height:60px;
+		padding-left:5px;
+		padding-right:15px;
+		margin-right:-5px;
+		
+		font-size:8px;
+	}
+	.my-card-title{
+		float:left;
+		font-family: 'Roboto',sans-serif;
+		font-size:5vw;
+		color:#e65100;
+		font-weight:bold;
+		overflow: hidden;
+	    text-overflow: ellipsis;
+		
+		height:20px;
+		margin-left:1%;
+	}
+	.description{
+		font-size:10px;
+		
+		margin-top:-10px;
+		width:40vw;
+		height:69px;
+	}
+	.detail-icon{
+		width:10px;
+		height:10px;
+	}
+	.boton-go{
+		height:60px;
+	}
+	.user-dist{
+		line-height:80%;
+	}
+	.user-price{
+		line-height:80%;
+	}
+	.user-time{
+		line-height:80%;
+	}
+	.user-assist{
+		line-height:80%;
+	}
+	.imagen-perfil-interior{
+		width:150px;
+		height:150px;
+		margin:1%;
+	}
+}
+/* Creador de eventitooooooooos*/
+/* incorpora lo de inicio-title Y lo de map en los media-queries anteriores eh*/
+#add-etapa{
+	margin-top:3%;
+}
+
+.thumb{
+     height: 300px;
+     border: 1px solid #000;
+     margin: 10px 5px 0 0;
+}
+

@@ -1,0 +1,38 @@
+<div class="card-content black-text">
+	<span class="card-title">Recupera tu contrase&ntilde;a</span>
+	<form id="recpass" action="operations.php?op=recpass" method="post"> 
+		<div class="input-field">
+			<input placeholder="E-mail" id="email" name="email" type="text" class="validate" required/>
+		</div>
+	</form>
+</div>
+<div class="card-action">
+	<a href="javascript:void(0)" onclick="sendRecPass()" class="waves-effect waves-light btn black white-text">Entrar</a>
+</div>
+<script>
+	function sendRecPass() {
+		$("#recpass").ajaxSubmit({
+			dataType: 'json',
+			type: 'POST',
+			success:function(res){
+				if (res.status == "OK"){
+					var person = prompt("Esta es tu nueva contrase&ntilde;a (guardala en un lugar seguro)", res.msg);
+					if (person != null) {
+						location.href="index.php";
+					}
+				} else {
+					Materialize.toast(res.msg, 3000);
+				}
+			},
+			error: function(res){
+				Materialize.toast('Se ha producido un error', 3000);
+				console.log(res);
+			}
+		}); 
+	}
+	$(document).keypress(function(e) {
+		if(e.which == 13) {
+			sendRecPass();
+		}
+	});
+</script>
